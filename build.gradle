@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group 'com.sam.dacanay'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile ("com.squareup.okhttp3:okhttp:3.9.1")
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile("org.mockito:mockito-core:2.27.0")
+}
+
+test {
+    environment 'API_ID', System.getenv("OXFORD_API_ID") ?: "fakeId"
+    environment 'API_KEY', System.getenv("OXFORD_API_KEY") ?: "fakeKey"
+
+}
